@@ -9,7 +9,9 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = 'suvidha-802'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('MYSQL_DB_URL')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('MYSQL_DB_URL')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:MOm@1050@localhost/suvidha_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///suvidha.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -82,8 +84,8 @@ def register():
             return redirect('/login')
         except Exception as e:
             db.session.rollback()
-            return render_template('register.html', error=f"Registration failed: {str(e)}")
-    return render_template('register.html')
+            return render_template('stu_signup.html', error=f"Registration failed: {str(e)}")
+    return render_template('stu_signup.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
