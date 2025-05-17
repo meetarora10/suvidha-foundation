@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Login</title>
-  <link rel="stylesheet" href="stu_signup.css" />
+  <title>Student Signin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='stu_signup.css') }}" />
 </head>
 <body>
   <div class="blob blob1"></div>
   <div class="blob blob2"></div>
 
   <div class="login-container">
-    <h2>Student Login</h2>
+    <h2>Student Sign Up</h2>
 
     <form>
       <div class="form-group">
@@ -30,7 +30,7 @@
       <button type="submit">Sign up</button>
     </form>
 
-    <p class="note">Already have an account? <a href="#">Login</a></p>
+    <p class="note">Already have an account? <a href="login.html">Login</a></p>
   </div>
 
   <script src="stu_login.js"></script>

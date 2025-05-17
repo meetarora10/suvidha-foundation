@@ -11,6 +11,18 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #333;
     }
+    input::placeholder,
+select::placeholder {
+  color: #999;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Change placeholder color on input hover */
+input:hover::placeholder,
+select:hover::placeholder {
+  color: #555; /* Darker color on hover */
+  opacity: 0.8;
+}
 
     .container {
       max-width: 500px;

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Resume - Portal</title>
-    <link rel="stylesheet" href="Resume_edit.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Resume_edit.css') }}">
 </head>
 <body>
     <div class="container">
@@ -26,11 +26,11 @@
                     <input type="file" id="photo-upload" accept="image/*" style="display: none;">
                 </div>
                 <div class="profile-info">
-                    <div class="editable-field" id="full-name" contenteditable="true">Kalpak Kulkarni</div>
-                    <div class="editable-field" id="course-year" contenteditable="true">IT Engineering | 3rd Year</div>
-                    <div class="editable-field" id="email" contenteditable="true">Email: Kalpak@example.com</div>
+                    <div class="editable-field" id="full-name" contenteditable="true">Ayush Raj</div>
+                    <div class="editable-field" id="course-year" contenteditable="true">CSE Engineering | 3rd Year</div>
+                    <div class="editable-field" id="email" contenteditable="true">Email: Ayush@example.com</div>
                     <div class="editable-field" id="phone" contenteditable="true">Phone: +91 98765 43210</div>
-                    <div class="editable-field" id="location" contenteditable="true">Location: Mumbai, Maharashtra</div>
+                    <div class="editable-field" id="location" contenteditable="true">Location: New Delhi, Delhi</div>
                 </div>
             </div>
             
@@ -43,7 +43,7 @@
                 <div class="education-item">
                     <div class="editable-field" contenteditable="true">B.Tech in Computer Engineering</div>
                     <div class="education-meta">
-                        <div class="editable-field" contenteditable="true">VIT Engineering College</div>
+                        <div class="editable-field" contenteditable="true">Mharaja Surajmal Institute </div>
                         <div class="editable-field" contenteditable="true">2022 - 2026</div>
                     </div>
                     <div class="editable-field" contenteditable="true">CGPA: 9.5/10</div>
