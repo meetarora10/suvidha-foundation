@@ -64,7 +64,7 @@ init_db()
 # ------------------ Routes ------------------ #
 @app.route('/')
 def home():
-    return redirect('/login')
+    return render_template('index.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -103,7 +103,27 @@ def login():
         except Exception as e:
             return render_template('login.html', error=f"Login failed: {str(e)}")
     return render_template('login.html')
-
+@app.route('/student_registration')
+def student_registration():
+    return render_template('student_registration.html')
+@app.route('/employee_registration')
+def employee_registration():
+    return render_template('employee_registration.html')
+@app.route('/tpo_registration')
+def tpo_registration():
+    return render_template('tpo_registration.html')
+@app.route('/help')
+def help_page():
+    return render_template('help.html')
+@app.route('/internship_listing')
+def internship_listing():
+    return render_template('internship_listing.html')
+@app.route('/resume_edit')
+def resume_edit():
+    return render_template('resume_edit.html')
+@app.route('/application_page')
+def application_page():
+    return render_template('application_page.html')
 @app.route('/dashboard')
 def dashboard():
     if 'user_id' not in session:
