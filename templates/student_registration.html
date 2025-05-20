@@ -100,46 +100,60 @@ select:hover::placeholder {
   <div class="container">
     <h2>Student Registration</h2>
     <p style="text-align: center;">Register to access placement opportunities</p>
+        {% if error %}
+    <div class="error-message" style="color:red">{{ error }}</div>
+    {% endif %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form method="POST">
+      <div class="section-title">Personal Information</div>
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="name" placeholder="Enter your name">
 
-    <div class="section-title">Personal Information</div>
-    <label for="full-name">Full Name</label>
-    <input type="text" id="full-name" placeholder="Enter your name">
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
 
-    <label for="email">Email ID</label>
-    <input type="email" id="email" placeholder="Enter your email">
+      <label for="contact">Contact Number</label>
+      <input type="text" id="contact" name="contact" placeholder="Enter your mobile number">
 
-    <label for="contact">Contact Number</label>
-    <input type="text" id="contact" placeholder="Enter your mobile number">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" maxlength="10" placeholder="Max 10 characters">
+      <small id="password-strength-text"></small>
 
-    <label for="password">Password</label>
-    <input type="password" id="password" maxlength="10" placeholder="Max 10 characters">
-    <small id="password-strength-text"></small>
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm_password" placeholder="Re-enter password">
 
-    <label for="confirm-password">Confirm Password</label>
-    <input type="password" id="confirm-password" placeholder="Re-enter password">
+      <div class="section-title">Academic Information</div>
+      <label for="college">College Name</label>
+      <input type="text" id="college" placeholder="Enter your college name">
 
-    <div class="section-title">Academic Information</div>
-    <label for="college">College Name</label>
-    <input type="text" id="college" placeholder="Enter your college name">
+      <label for="branch">Branch</label>
+      <input type="text" id="branch" placeholder="e.g. Computer Engineering">
 
-    <label for="branch">Branch</label>
-    <input type="text" id="branch" placeholder="e.g. Computer Engineering">
+      <label for="year">Year of Study</label>
+      <select id="year">
+        <option value="" disabled selected>Select year</option>
+        <option value="1">First Year</option>
+        <option value="2">Second Year</option>
+        <option value="3">Third Year</option>
+        <option value="4">Final Year</option>
+      </select>
 
-    <label for="year">Year of Study</label>
-    <select id="year">
-      <option value="" disabled selected>Select year</option>
-      <option value="1">First Year</option>
-      <option value="2">Second Year</option>
-      <option value="3">Third Year</option>
-      <option value="4">Final Year</option>
-    </select>
-
-    <div class="terms">
-      <input type="checkbox" id="agree">
-      <label for="agree">I agree to the <a href="#">Terms & Conditions</a></label>
-    </div>
-
-    <button class="btn">Register</button>
+      <div class="terms">
+        <input type="checkbox" id="agree">
+        <label for="agree">I agree to the <a href="#">Terms & Conditions</a></label>
+      </div>
+      <input type="hidden" name="role" value="student">
+      <button class="btn">Register</button>
+  </form>
+    <p class="note">Already have an account? <a href="{{ url_for('login') }}">Sign in</a></p>
   </div>
 
   <script>

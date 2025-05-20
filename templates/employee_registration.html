@@ -92,24 +92,37 @@
 <body>
   <div class="container">
     <h2>Employee Registration</h2>
+    <div class="separator"></div>
     <p style="text-align: center;">Register to access employee portal features</p>
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="{{ 'success-message' if category == 'success' else 'error-message' }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <form method="POST">
 
     <div class="section-title">Basic Information</div>
     <label for="full-name">Full Name</label>
-    <input type="text" id="full-name" placeholder="Enter your full name">
+    <input type="text" id="full-name" name="name" placeholder="Enter your full name">
 
     <label for="email">Email</label>
-    <input type="email" id="email" placeholder="Enter your email address">
+    <input type="email" id="email" name="email" placeholder="Enter your email address">
 
-    <label for="phone">Phone Number</label>
-    <input type="text" id="phone" placeholder="Enter your phone number">
+    <label for="phone">Contact Number</label>
+    <input type="text" id="phone" name="contact" placeholder="Enter your phone number">
 
     <label for="password">Password</label>
-    <input type="password" id="password" maxlength="10" placeholder="Create password (max 10 characters)">
+    <input type="password" id="password" name="password" maxlength="10" placeholder="Create password (max 10 characters)">
     <small id="password-strength-text"></small>
 
     <label for="confirm-password">Confirm Password</label>
-    <input type="password" id="confirm-password" placeholder="Confirm your password">
+    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password">
 
     <div class="section-title">Company Information</div>
     <label for="company-name">Company Name</label>
@@ -141,8 +154,12 @@
       <input type="checkbox" id="agree">
       <label for="agree">I agree to the <a href="#">Terms & Conditions</a></label>
     </div>
-
+    <input type="hidden" name="role" value="employee">
     <button class="btn">Register</button>
+    <p class="note">
+      Already have an account? <a href="{{ url_for('login') }}">Sign in</a> |
+      <a href="{{ url_for('register') }}">Choose different role</a>
+  </form>
   </div>
 
   <script>

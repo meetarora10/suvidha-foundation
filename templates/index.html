@@ -38,9 +38,9 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link">Registration</a>
                 <div class="dropdown-content">
-                    <a href="{{ url_for('student_registration') }}" class="dropdown-link">Student</a>
-                    <a href="{{ url_for('employee_registration') }}" class="dropdown-link">Employee</a>
-                    <a href="{{ url_for('tpo_registration') }}" class="dropdown-link">TPO</a>
+                    <a href="{{ url_for('register_student') }}" class="dropdown-link">Student</a>
+                    <a href="{{ url_for('register_employee') }}" class="dropdown-link">Employee</a>
+                    <a href="{{ url_for('register_tpo') }}" class="dropdown-link">TPO</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -56,7 +56,7 @@
             <p>Kickstart your career with meaningful internships that help you grow professionally. Join thousands of students who have found their path with us.</p>
             <div class="hero-buttons">
                 <a href="{{ url_for('internship_listing') }}" class="hero-btn primary-btn">Browse Internships</a>
-                <a href="{{ url_for('student_registration') }}" class="hero-btn secondary-btn">Register Now</a>
+                <a href="{{ url_for('register_student') }}" class="hero-btn secondary-btn">Register Now</a>
             </div>
             <div class="ocean">
                 <div class="wave"></div>
